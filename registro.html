@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - UniBuy-C</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #ffffff;
+            padding-top: 20px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 350px;
+        }
+
+        .back {
+            font-size: 24px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #009975;
+            margin-bottom: 25px;
+        }
+
+        .input-field {
+            margin-top: 18px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-field label {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .input-field input {
+            width: 100%;
+            padding: 10px 5px;
+            border: none;
+            border-bottom: 1.5px solid #aaa;
+            outline: none;
+            font-size: 15px;
+        }
+
+        /* Fecha de nacimiento */
+        .date-box {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .date-box label {
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        .date-box input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1.5px solid #ccc;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 14px;
+            margin-top: 35px;
+            border-radius: 25px;
+            border: none;
+            background: #00a884;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:disabled {
+            background: #9ad8ca;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="back" onclick="window.location.href='login.html'">⬅</div>
+
+        <h2>Registro</h2>
+
+        <div class="input-field">
+            <label>Correo</label>
+            <input type="email" id="correo" oninput="validar()">
+        </div>
+
+        <div class="input-field">
+            <label>Nombre</label>
+            <input type="text" id="nombre" oninput="validar()">
+        </div>
+
+        <div class="input-field">
+            <label>Apellido Paterno</label>
+            <input type="text" id="apPaterno" oninput="validar()">
+        </div>
+
+        <div class="input-field">
+            <label>Apellido Materno</label>
+            <input type="text" id="apMaterno" oninput="validar()">
+        </div>
+
+        <div class="date-box">
+            <label>Fecha de Nacimiento</label>
+            <input type="date" id="fechaNac" oninput="validar()">
+        </div>
+
+        <button id="btnContinuar" class="btn" disabled onclick="continuar()">
+            Continuar
+        </button>
+
+    </div>
+
+    <script>
+        function validar() {
+            const correo = document.getElementById("correo").value.trim();
+            const nombre = document.getElementById("nombre").value.trim();
+            const apPaterno = document.getElementById("apPaterno").value.trim();
+            const apMaterno = document.getElementById("apMaterno").value.trim();
+            const fecha = document.getElementById("fechaNac").value;
+
+            const btn = document.getElementById("btnContinuar");
+
+            // Activar el botón solo si todos los campos están llenos
+            if (correo && nombre && apPaterno && apMaterno && fecha) {
+                btn.disabled = false;
+            } else {
+                btn.disabled = true;
+            }
+        }
+
+        function continuar() {
+            alert("Registro completado correctamente.");
+        }
+    </script>
+
+</body>
+</html>
